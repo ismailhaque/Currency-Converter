@@ -1,18 +1,33 @@
-function mage(name, year, gender) {
-    let date = new Date();
-    let age = date.getFullYear() - year;
 
-    if ( age >= 18 && gender == 'female' ) {
 
-        return `<p class="alert alert-success">Welcome ${ name }. You are ${ age } years old. You are old enough to get married. You can get married.</p>`
 
-    }else if ( age >= 21 && gender == 'male' ) {
+/**
+ * bdt converter
+ * @param {*} currency 
+ * @returns 
+ */
+function converter(amount){
 
-        return `<p class="alert alert-success">Welcome ${ name }. You are ${ age } years old. You are old enough to get married. You can get married.</p>`
-
-    }else{
-
-    return `<p class="alert alert-danger">Welcome ${ name }. You are ${ age } years old. You are not old enough to get married.</p>`
-
+    if( currency.value == `usd`){
+        return 85 * amount;
+    }else if( currency.value == `cad`){
+        return 90 * amount;
+    }else if( currency.value == `pound`){
+        return 95 * amount;
+    }else if( currency.value == `euro`){
+        return 100 * amount;
+    }else if( currency.value == `gbp`){
+        return 105 * amount;
     }
+};
+/**
+ * RETURN RESULT
+ * @param {*} amount 
+ * @param {*} currency 
+ * @returns 
+ */
+function bdt(amount, currency) {
+
+    return `<p class="alert alert-success">Welcome, ${ converter(amount, currency) } BDT</p>`
+
 };
